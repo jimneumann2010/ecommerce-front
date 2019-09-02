@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-const RadioBox = ({ prices, handleFilters }) => {
+const Radiobox = ({ prices, handleFilters }) => {
     const [value, setValue] = useState(0);
 
     const handleChange = event => {
@@ -22,4 +22,4 @@ const RadioBox = ({ prices, handleFilters }) => {
     ));
 };
 
-export default RadioBox;
+export default Radiobox;
