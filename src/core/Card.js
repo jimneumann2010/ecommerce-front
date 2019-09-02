@@ -9,7 +9,8 @@ const Card = ({
     showViewProductButton = true,
     showAddToCartButton = true,
     cartUpdate = false,
-    showRemoveProductButton = false
+    showRemoveProductButton = false,
+    changeCartSize
 }) => {
     const [redirect, setRedirect] = useState(false);
     const [count, setCount] = useState(product.count);
@@ -55,7 +56,10 @@ const Card = ({
         return (
             showRemoveProductButton && (
                 <button
-                    onClick={() => removeItem(product._id)}
+                    onClick={() => {
+                        removeItem(product._id);
+                        {changeCartSize()};
+                    }}
                     className="btn btn-outline-danger mt-2 mb-2"
                 >
                     Remove Product
@@ -68,7 +72,7 @@ const Card = ({
         return quantity > 0 ? (
             <span className="badge badge-primary badge-pill">In Stock</span>
         ) : (
-            <span className="badge badge-primary badge-pill">Out of Stock</span>
+            <span className="badge badge-danger badge-pill">Out of Stock</span>
         );
     };
 

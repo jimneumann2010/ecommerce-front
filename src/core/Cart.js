@@ -7,10 +7,16 @@ import Checkout from "./Checkout";
 
 const Cart = () => {
     const [items, setItems] = useState([]);
+    const [cartSize, setCartSize] = useState(0);
 
     useEffect(() => {
         setItems(getCart());
-    }, [items]);
+        changeCartSize();
+    }, [cartSize]);
+
+    const changeCartSize = () => {
+        setCartSize(getCart().length);
+    };
 
     const showItems = items => {
         return (
@@ -24,6 +30,7 @@ const Cart = () => {
                         showAddToCartButton={false}
                         cartUpdate={true}
                         showRemoveProductButton={true}
+                        changeCartSize={changeCartSize}
                     />
                 ))}
             </div>
