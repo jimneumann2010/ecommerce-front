@@ -11,20 +11,30 @@ const Home = () => {
 
     const loadProductsBySell = () => {
         getProducts('sold').then(data => {
-            if (data.error) {
-                setError(data.error);
+            if (data)
+            {
+                if (data.error) {
+                    console.log(data.error);
+                } else {
+                    setProductsBySell(data);
+                }
             } else {
-                setProductsBySell(data);
+                console.log("error");
             }
         });
     };
 
     const loadProductsByArrival = () => {
         getProducts('createdAt').then(data => {
-            if (data.error) {
-                setError(data.error);
+            if (data)
+            {
+                if (data.error) {
+                    console.log(data.error);
+                } else {
+                    setProductsByArrival(data);
+                }
             } else {
-                setProductsByArrival(data);
+                console.log("error");
             }
         });
     };
@@ -36,7 +46,7 @@ const Home = () => {
 
     return (
         <Layout
-            title="FullStack React Node MongoDB Ecommerce App"
+            title="Lasting Impact"
             description="Node React E-commerce App"
             className="container-fluid"
         >
